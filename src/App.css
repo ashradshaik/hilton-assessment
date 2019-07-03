@@ -23,6 +23,20 @@
   color: #61dafb;
 }
 
+
+.rooms{
+  display: flex;
+  margin: 0 auto;
+}
+.room{
+  width:200px;
+  border:1px solid #333;
+  border-radius:2px;
+  margin:10px;
+  float: left;
+  
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
