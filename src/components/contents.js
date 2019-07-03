@@ -59,6 +59,16 @@ class Contents extends Component{
     handleSubmit=(e)=>{
         e.preventDefault()   
     }
+    componentWillMount(){
+        const localStorageAdult = localStorage.getItem(`adult`);
+        const localStorageChild = localStorage.getItem(`child`);
+        console.log(localStorageAdult, localStorageChild)
+        this.setState({
+            adults:JSON.parse(localStorageAdult),
+            children:JSON.parse(localStorageChild)  
+        })
+        // console.log(localStorageAdult)
+    }
     componentWillUpdate(nextProps, nextState){
         localStorage.setItem(`adult`, JSON.stringify(nextState.adults))
         localStorage.setItem(`child`, JSON.stringify(nextState.children))
@@ -67,7 +77,7 @@ class Contents extends Component{
     render(){
         return(
             <div className="rooms">
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} className="room-form">
                     <div className="room-1 room">
                         <h3>Room-1</h3>
                         <Form addAdult={this.addAdult} addChild={this.addChild} room={1} />
